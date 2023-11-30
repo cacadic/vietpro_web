@@ -31,7 +31,20 @@
         <div class="row">
           <div id="logo" class="col-lg-3 col-md-3 col-sm-12">
             <h1>
-              <a href="#"><img src="images/logo.png" alt="" /></a>
+              <a href="#"
+                ><img class="img-fluid" src="images/logo.png" alt=""
+              /></a>
+              <button
+                class="navbar-toggler navbar-light"
+                type="button"
+                data-toggle="collapse"
+                data-target="#menu"
+                aria-controls="navbarToggleExternalContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
             </h1>
           </div>
           <div id="search" class="col-lg-7 col-md-7 col-sm-12">
@@ -57,7 +70,7 @@
     <div id="homepage">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="collapse col-lg-12 col-md-12 col-sm-12" id="menu">
             <ul>
               <li class="menu-item"><a href="#">Iphone</a></li>
               <li class="menu-item"><a href="#">Samsung</a></li>
@@ -339,11 +352,56 @@
     <!-- End Homepage -->
 
     <!-- Footer Top -->
-    <div id="footer-t"></div>
+    <div id="footer-t">
+      <div class="container">
+        <div class="row">
+          <div id="logo-f" class="col-lg-3 col-md-6 col-sm-12">
+            <h2>
+              <a href="#"
+                ><img src="./images/logo-footer.png" alt="Logo Footer"
+              /></a>
+            </h2>
+
+            <p>
+              Vietpro Academy thành lập năm 2009. Chúng tôi đào tạo chuyên sâu
+              trong 2 lĩnh vực là Lập trình Website & Mobile nhằm cung cấp cho
+              thị trường CNTT Việt Nam những lập trình viên thực sự chất lượng,
+              có khả năng làm việc độc lập, cũng như Team Work ở mọi môi trường
+              đòi hỏi sự chuyên nghiệp cao.
+            </p>
+          </div>
+
+          <div id="address" class="col-lg-3 col-md-6 col-sm-12">
+            <h3>Địa chỉ</h3>
+            <p>B8A Võ Văn Dũng - Hoàng Cầu Đống Đa - Hà Nội</p>
+            <p>Số 25 Ngõ 178/71 - Tây Sơn Đống Đa - Hà Nội</p>
+          </div>
+
+          <div id="services" class="col-lg-3 col-md-6 col-sm-12">
+            <h3>Dịch vụ</h3>
+            <p>Bảo hành rơi vỡ, ngấm nước Care Diamond</p>
+            <p>Bảo hành Care X60 rơi vỡ ngấm nước vẫn Đổi mới</p>
+          </div>
+
+          <div id="hotline" class="col-lg-3 col-md-6 col-sm-12">
+            <h3>Hotline</h3>
+            <p>Phone Sale: (+84) 0988 550 553</p>
+            <p>Email: vietpro.edu.vn@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- End Footer Top -->
 
     <!-- Footer Bottom -->
-    <div id="footer-b"></div>
+    <div id="footer-b">
+      <div class="container">
+        <p>
+          2018 © Vietpro Academy. All rights reserved. Developed by Vietpro
+          Software.
+        </p>
+      </div>
+    </div>
     <!-- End Footer Bottom -->
 
     <script src="script.js"></script>
