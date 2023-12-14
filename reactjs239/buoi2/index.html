@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mang</title>
+  </head>
+  <body>
+    <script>
+      // C1
+      //   var arr = new Array();
+      //   arr[0] = "HTML";
+      //   arr[1] = 1000;
+      //   arr[2] = true;
+      //   arr[1] = 3.14;
+
+      //   var arr = new Array("HTML", 1000, true);
+
+      //   document.write(arr[2]);
+
+      //   for (x in arr) {
+      //     console.log({ x });
+      //     document.write(arr[x] + "<br/>");
+      //   }
+
+      //   function tinhTong() {
+      //     var st1 = 10;
+      //     var st2 = 5;
+      //     var kq = st1 + st2;
+      //     document.write(kq);
+      //   }
+
+      //   tinhTong();
+
+      function tinhToan(so_1, so_2, phep_toan) {
+        var kq;
+        switch (phep_toan) {
+          case "+":
+            kq = so_1 + so_2;
+            break;
+          case "-":
+            kq = so_1 - so_2;
+            break;
+          case "x":
+            kq = so_1 * so_2;
+            break;
+          case ":":
+            if (so_2 != 0) {
+              kq = so_1 / so_2;
+            } else {
+              kq = null;
+            }
+            break;
+          case "%":
+            kq = so_1 % so_2;
+            break;
+          default:
+            kq = null;
+        }
+
+        return so_1 + " " + phep_toan + " " + so_2 + " = " + (kq ?? "Lỗi");
+      }
+
+      var so_1 = parseInt(prompt("Nhập số thứ nhất: "));
+      var phep_toan = prompt("Nhập 1 trong 5 ký tự +, -, x, /");
+      var so_2 = parseInt(prompt("Nhập số thứ 2: "));
+      alert(tinhToan(so_1, so_2, phep_toan));
+    </script>
+  </body>
+</html>
