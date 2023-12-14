@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   document.write("<h1>Xin chao!</h1>");
+      //   document.write("Xin chao!");
+      //   document.write(prompt("Tên bạn là gì?"));
+      //   document.write("</br>");
+      //   document.write(prompt("Tuổi của bạn"));
+      //   document.write("</br>");
+      //   document.write(prompt("Nơi sống"));
+      //   alert("Xin chào!");
+
+      //   var so_nguyen = 100;
+      //   var so_thuc = 3.14;
+      //   document.write(so_thuc);
+
+      //   document.write("Ket qua la: " + so_nguyen);
+      //   var so1 = 10;
+      //   var so2 = 3;
+      //   var kq = so1 % so2;
+
+      //   document.write(kq);
+
+      //   var so = 10;
+      //   so /= 5;
+      //   document.write(so);
+
+      // var so = 10;
+      // if (so > 0) {
+      //   document.write("So duong");
+      // } else {
+      //   if (so == 0) {
+      //     document.write("So 0");
+      //   } else {
+      //     document.write("So am");
+      //   }
+      // }
+
+      // var so = 1;
+      // while (so <= 10) {
+      //   document.write(so);
+      //   if (so < 10) {
+      //     document.write(", ");
+      //   } else {
+      //     document.write(".");
+      //   }
+      //   so++;
+      // }
+
+      // for (var so = 1; so <= 10; so++) {
+      //   document.write(so);
+      //   if (so <br 10) {
+      //     document.write(", ");
+      //   } else {
+      //     document.write(".");
+      //   }
+      // }
+
+      // for (var so = 10; so >= 0; so--) {
+      //   if (so % 2 == 0) {
+      //     document.write(so);
+      //     if (so > 0) {
+      //       document.write(", ");
+      //     } else {
+      //       document.write(".");
+      //     }
+      //   }
+      // }
+
+      var tong = 0;
+      for (var so = 1; so <= 100; so++) {
+        tong += so;
+      }
+
+      document.write("Tong cac so tu 1 den 100 la: " + tong);
+      document.write("<br>");
+
+      var tongSoChan = 0;
+      var tongSoLe = 0;
+
+      for (var so = 1; so <= 50; so++) {
+        if (so % 2 == 0) {
+          tongSoChan += so;
+        } else {
+          tongSoLe += so;
+        }
+      }
+
+      document.write("Tong cac so chan tu 1 den 50 la: " + tongSoChan);
+      document.write("<br>");
+      document.write("Tong cac so le tu 1 den 50 la: " + tongSoLe);
+    </script>
+  </body>
+</html>
