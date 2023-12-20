@@ -2,47 +2,28 @@ const ProductModel = require("../../models/product");
 const CommentModel = require("../../models/comment");
 const pagination = require("../../../libs/pagination");
 exports.index = async (req, res) => {
-  // const query = {};
-  // query.is_featured = req.query.is_featured || false;
-  // query.is_stock = req.query.is_stock || true;
-  // const limit = parseInt(req.query.limit) || 10;
-  // const page = parseInt(req.query.page) || 1;
-  // const skip = page*limit - limit;
-  // const products = await ProductModel.find(query)
-  //     .sort({_id: -1})
-  //     .skip(skip)
-  //     .limit(limit)
-  // res
-  //     .status(200)
-  //     .json({
-  //         status: "success",
-  //         filters: {
-  //             is_featured: query.is_featured,
-  //             is_stock: query.is_stock,
-  //             page,
-  //             limit,
-  //         },
-  //         data: {
-  //             docs: products,
-  //         },
-  //         pages: await pagination(ProductModel, query, page, limit),
-  // });
-
-  const is_stock = req.query.is_stock || true;
-  const is_featured = req.query.is_featured || false;
-  const products = await ProductModel.find({ is_stock, is_featured }).sort({
-    _id: -1,
-  });
+  const query = {};
+  query.is_featured = req.query.is_featured || false;
+  query.is_stock = req.query.is_stock || true;
+  const limit = parseInt(req.query.limit) || 10;
+  const page = parseInt(req.query.page) || 1;
+  const skip = page * limit - limit;
+  const products = await ProductModel.find(query)
+    .sort({ _id: -1 })
+    .skip(skip)
+    .limit(limit);
   res.status(200).json({
     status: "success",
     filters: {
-      is_stock,
-      is_featured,
+      is_featured: query.is_featured,
+      is_stock: query.is_stock,
+      page,
+      limit,
     },
     data: {
       docs: products,
     },
-    pages: {},
+    pages: await pagination(ProductModel, query, page, limit),
   });
 };
 
@@ -66,6 +47,10 @@ exports.comments = async (req, res) => {
     .limit(limit);
   res.status(200).json({
     status: "success",
+    filters: {
+      page,
+      limit,
+    },
     data: {
       docs: comments,
     },
