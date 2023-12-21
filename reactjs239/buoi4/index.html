@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Buoi 4</title>
+  </head>
+  <body>
+    JS Buoi 4
+    <script>
+      //   const a = -11;
+      //   const result = a > 0 ? "So duong" : a === -10 ? "So -10" : "So Am";
+      //   console.log(result);
+
+      const product = {
+        name: "Nokia",
+        price: 8000000,
+        qty: 2,
+      };
+
+      //   for (item of product) {
+      //     console.log(item);
+      //   }
+
+      //   const courses = ["Javascript", "ReactJS", "NodeJS"];
+
+      //   for (const item of courses) {
+      //     console.log(item);
+      //   }
+
+      //   const new_courses = courses.filter((item) => item !== "ReactJS");
+
+      //   const course = [1, 3, 20];
+
+      //   const num = course.reduce((total, item) => total + item);
+      //   console.log(num);
+
+      const cart = [
+        {
+          name: "Iphone",
+          qty: 2,
+        },
+        {
+          name: "Nokia",
+          qty: 1,
+        },
+        {
+          name: "Samsung",
+          qty: 7,
+        },
+      ];
+
+      const num = cart.reduce((total, item) => total + item.qty, 0);
+
+      console.log(num);
+    </script>
+  </body>
+</html>
