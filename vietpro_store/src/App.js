@@ -1,12 +1,14 @@
-import React from "react";
-import Title from "./components/Title";
-import Menu from "./components/Menu";
+import React, { useState } from "react";
+import Slide from "./components/Slide";
+import SlideButton from "./components/SlideButton";
 
 const App = () => {
+  const [slide, setSlide] = useState(1);
+
   return (
     <>
-      <Title title="Danh muc san pham" title2="Category" />
-      <Menu />
+      <Slide slide={slide} />
+      <SlideButton setSlide={setSlide} />
     </>
   );
 };
