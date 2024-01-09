@@ -1,18 +1,12 @@
 import React from "react";
-import Slider from "./components/Slider";
-import Student from "./components/Student";
-import Class from "./components/Class";
-import Library from "./components/Library";
-import Footer from "./components/Footer";
+import Title from "./components/Title";
+import Menu from "./components/Menu";
 
 const App = () => {
   return (
     <>
-      <Slider />
-      <Student />
-      <Class />
-      <Library />
-      <Footer />
+      <Title title="Danh muc san pham" title2="Category" />
+      <Menu />
     </>
   );
 };
