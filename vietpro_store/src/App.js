@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import Slide from "./components/Slide";
-import SlideButton from "./components/SlideButton";
+import Large from "./components/Large";
+import Small from "./components/Small";
 
 const App = () => {
-  const [slide, setSlide] = useState(1);
+  const [currentImg, setCurrentImg] = useState("images/img-1.jpg");
 
   return (
     <>
-      <Slide slide={slide} />
-      <SlideButton setSlide={setSlide} />
+      <div id="product">
+        <Large currentImg={currentImg} />
+        <Small setCurrentImg={setCurrentImg} currentImg={currentImg} />
+      </div>
     </>
   );
 };
