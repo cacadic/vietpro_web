@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Large from "./components/Large";
-import Small from "./components/Small";
+import Thumbnail from "./components/Thumbnail";
+import Title from "./components/Title";
+import Description from "./components/Description";
 
 const App = () => {
-  const [currentImg, setCurrentImg] = useState("images/img-1.jpg");
-
   return (
-    <>
-      <div id="product">
-        <Large currentImg={currentImg} />
-        <Small setCurrentImg={setCurrentImg} currentImg={currentImg} />
+    <div id="main">
+      <div className="content-item">
+        <Thumbnail />
+        <Title />
+        <Description />
       </div>
-    </>
+    </div>
   );
 };
 
