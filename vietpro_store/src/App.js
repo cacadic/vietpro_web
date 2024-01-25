@@ -1,17 +1,13 @@
-import React, { useState } from "react";
-import Thumbnail from "./components/Thumbnail";
-import Title from "./components/Title";
-import Description from "./components/Description";
+import React from "react";
+import { Provider } from "react-redux";
+import Random from "./components/Random";
+import store from "./redux/store";
 
 const App = () => {
   return (
-    <div id="main">
-      <div className="content-item">
-        <Thumbnail />
-        <Title />
-        <Description />
-      </div>
-    </div>
+    <Provider store={store}>
+      <Random />
+    </Provider>
   );
 };
 
