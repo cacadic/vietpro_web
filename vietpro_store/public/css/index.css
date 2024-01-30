@@ -1,38 +1,86 @@
-body{
-font-family:arial;
-font-size:18px;
-color:#666;}
-
-a{
-color:#333;}
-
-h2,h3,#slide h5{
-font-size:36px;
-text-transform:capitalize;}
-
-h3{
-font-size:28px;}
-
-h4{
-font-size:24px;
+body {
+  font-family: arial;
+  font-size: 18px;
+  color: #666;
 }
 
-h2, h3, h4{
-margin-bottom:25px;}
-
-.section{
-padding-top:50px;
-padding-bottom:50px;
+a {
+  color: #333;
 }
 
-.bg-black{
-background:#000;}
+h2,
+h3,
+#slide h5 {
+  font-size: 36px;
+  text-transform: capitalize;
+}
 
-.bg-white{
-background:#FFF;}
+h3 {
+  font-size: 28px;
+}
 
-#footer ul{
-padding:0;}
+h4 {
+  font-size: 24px;
+}
 
-#footer ul li{
-list-style:none;}
+h2,
+h3,
+h4 {
+  margin-bottom: 25px;
+}
+
+.section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.bg-black {
+  background: #000;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+#footer ul {
+  padding: 0;
+}
+
+#footer ul li {
+  list-style: none;
+}
+
+.timer {
+  text-align: center;
+  color: white;
+  padding: 50px 0;
+}
+.timer p {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: 10% auto;
+  }
+  #timer-up {
+    border-radius: 5px 0 0 5px;
+    margin-right: -15px;
+  }
+  #timer-down {
+    margin-left: -15px;
+    border-radius: 0 5px 5px 0;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    margin: 5% auto;
+  }
+  #timer-up {
+    border-radius: 5px 5px 0 0;
+  }
+  #timer-down {
+    border-radius: 0 0 5px 5px;
+  }
+}
