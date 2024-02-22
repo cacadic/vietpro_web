@@ -1,9 +1,8 @@
 {
-  "name": "vietpro_store",
+  "name": "vietpro-store",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.23.9",
     "@reduxjs/toolkit": "^2.2.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -12,7 +11,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
-    "react-scripts": "^3.0.1",
+    "react-router-dom": "6.4",
+    "react-scripts": "5.0.1",
     "redux": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -39,8 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.21.0"
   }
 }

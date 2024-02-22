@@ -8,16 +8,16 @@ const Up = () => {
   const dispatch = useDispatch();
 
   const handleClickUp = () => {
-    dispatch({ type: up() });
+    dispatch(up());
   };
 
   const handleClickReset = () => {
-    dispatch({ type: reset(Number(defaultNumber)) });
+    dispatch(reset(Number(defaultNumber)));
   };
   return (
     <div class="col-lg-4 col-md-4 col-sm-8 col-8">
       <div class="timer bg-info" id="timer-up">
-        <p>{0}</p>
+        <p>{number}</p>
         <button type="button" class="btn btn-dark mr-2" onClick={handleClickUp}>
           Up
         </button>
