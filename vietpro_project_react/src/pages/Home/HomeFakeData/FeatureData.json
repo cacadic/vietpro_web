@@ -1,32 +1,32 @@
 [
   {
     "name": "iPhone Xs Max 2 Sim - 256GB",
-    "img": "images/product-7.png",
+    "image": "images/product-1.png",
     "price": "32.990.000"
   },
   {
     "name": "iPhone Xs Max 2 Sim - 256GB",
-    "img": "images/product-8.png",
+    "image": "images/product-2.png",
     "price": "32.990.000"
   },
   {
     "name": "iPhone Xs Max 2 Sim - 256GB",
-    "img": "images/product-9.png",
+    "image": "images/product-3.png",
     "price": "32.990.000"
   },
   {
     "name": "iPhone Xs Max 2 Sim - 256GB",
-    "img": "images/product-10.png",
+    "image": "images/product-4.png",
     "price": "32.990.000"
   },
   {
     "name": "iPhone Xs Max 2 Sim - 256GB",
-    "img": "images/product-11.png",
+    "image": "images/product-5.png",
     "price": "32.990.000"
   },
   {
     "name": "iPhone Xs Max 2 Sim - 256GB",
-    "img": "images/product-12.png",
+    "image": "images/product-6.png",
     "price": "32.990.000"
   }
 ]

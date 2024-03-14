@@ -25,7 +25,7 @@ function App() {
               <Slider />
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/Category" element={<Category />} />
+                <Route path="/Category-:id" element={<Category />} />
                 <Route path="/Cart" element={<Cart />} />
                 <Route path="/ProductDetail" element={<ProductDetails />} />
                 <Route path="/Search" element={<Search />} />

@@ -13,18 +13,18 @@ const Search = () => {
         </div>
         <div className="product-list card-deck">
           {data?.map(
-            (product, i) => i < 3 && <ProductItem key={i} product={product} />
+            (product, i) => i < 3 && <ProductItem key={i} item={product} />
           )}
         </div>
         <div className="product-list card-deck">
           {data?.map(
             (product, i) =>
-              i >= 3 && i < 6 && <ProductItem key={i} product={product} />
+              i >= 3 && i < 6 && <ProductItem key={i} item={product} />
           )}
         </div>
         <div className="product-list card-deck">
           {data?.map(
-            (product, i) => i >= 6 && <ProductItem key={i} product={product} />
+            (product, i) => i >= 6 && <ProductItem key={i} item={product} />
           )}
         </div>
       </div>

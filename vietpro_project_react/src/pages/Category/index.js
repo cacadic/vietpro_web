@@ -1,29 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./css/category.css";
-import data from "./CategoryData/CategoryData.json";
 import ProductItem from "../../shared/components/ProductItem";
+import { useParams } from "react-router-dom";
+import { getProductsCategory } from "../../services/Api";
+import { getImageProduct } from "../../utils";
 
 const Category = () => {
+  const [products, setProducts] = useState([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    getProductsCategory(id, { params: { limit: 9 } }).then(({ data }) => {
+      const products = data?.data?.docs;
+      console.log(products);
+      setProducts(
+        products.map((product) => ({
+          ...product,
+          image: getImageProduct(product.image),
+        }))
+      );
+    });
+  }, []);
+
   return (
     <>
       {/*	List Product	*/}
       <div className="products">
         <h3>iPhone (hiện có 186 sản phẩm)</h3>
         <div className="product-list card-deck">
-          {data?.map(
-            (product, i) => i < 3 && <ProductItem key={i} product={product} />
-          )}
-        </div>
-        <div className="product-list card-deck">
-          {data?.map(
-            (product, i) =>
-              i >= 3 && i < 6 && <ProductItem key={i} product={product} />
-          )}
-        </div>
-        <div className="product-list card-deck">
-          {data?.map(
-            (product, i) => i >= 6 && <ProductItem key={i} product={product} />
-          )}
+          {products?.map((product) => (
+            <ProductItem key={product._id} item={product} />
+          ))}
         </div>
       </div>
       {/*	End List Product	*/}

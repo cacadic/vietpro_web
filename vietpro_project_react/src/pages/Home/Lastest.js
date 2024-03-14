@@ -1,21 +1,29 @@
-import React from "react";
-import data from "./HomeData/LastestData.json";
+import React, { useEffect, useState } from "react";
 import ProductItem from "../../shared/components/ProductItem";
+import { getProducts } from "../../services/Api";
+import { getImageProduct } from "../../utils";
 
 const Lastest = () => {
+  const [lastesProducts, setLastestProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts({ params: { limit: 6 } }).then(({ data }) => {
+      const products =
+        data?.data?.docs?.map((product) => ({
+          ...product,
+          image: getImageProduct(product.image),
+        })) ?? [];
+
+      setLastestProducts(products);
+    });
+  }, []);
   return (
     <div className="products">
       <h3>Sản phẩm mới</h3>
       <div className="product-list card-deck">
-        {data?.map(
-          (product, i) => i < 3 && <ProductItem key={i} product={product} />
-        )}
-      </div>
-
-      <div className="product-list card-deck">
-        {data?.map(
-          (product, i) => i >= 3 && <ProductItem key={i} product={product} />
-        )}
+        {lastesProducts?.map((product) => (
+          <ProductItem key={product._id} item={product} />
+        ))}
       </div>
     </div>
   );
