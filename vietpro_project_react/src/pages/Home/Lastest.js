@@ -8,13 +8,7 @@ const Lastest = () => {
 
   useEffect(() => {
     getProducts({ params: { limit: 6 } }).then(({ data }) => {
-      const products =
-        data?.data?.docs?.map((product) => ({
-          ...product,
-          image: getImageProduct(product.image),
-        })) ?? [];
-
-      setLastestProducts(products);
+      setLastestProducts(data?.data?.docs);
     });
   }, []);
   return (

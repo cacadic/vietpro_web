@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductItem from "../../shared/components/ProductItem";
 import { getProducts } from "../../services/Api";
-import { getImageProduct } from "../../utils";
 
 const Feature = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -9,13 +8,7 @@ const Feature = () => {
   useEffect(() => {
     getProducts({ params: { limit: 6, "filter[is_featured]": true } }).then(
       ({ data }) => {
-        const products =
-          data?.data?.docs?.map((product) => ({
-            ...product,
-            image: getImageProduct(product.image),
-          })) ?? [];
-
-        setFeaturedProducts(products);
+        setFeaturedProducts(data?.data?.docs);
       }
     );
   }, []);
