@@ -7,3 +7,9 @@ export const getProductsCategory = (id, config) =>
 export const getCategories = (config) => Http.get(`/categories`, config);
 export const getCategory = (id, config) =>
   Http.get(`/categories/${id}`, config);
+
+export const getCommentsProduct = (id, config) =>
+  Http.get(`/products/${id}/comments`, config);
+
+export const createCommentProduct = (id, data) =>
+  Http.post(`/products/${id}/comments`, data);
