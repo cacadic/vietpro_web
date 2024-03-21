@@ -1,7 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 const Header = () => {
+  const [keyword, setKeyword] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  const onSearchHandle = (e) => {
+    e.preventDefault();
+
+    if (keyword === "") return;
+
+    return navigate(`/search?keyword=${keyword}`);
+  };
+
+  useEffect(() => {
+    if (location.pathname.toLowerCase() === "/search") {
+      setKeyword(searchParams.get("keyword"));
+    }
+  }, [location?.pathname, searchParams]);
+
   return (
     <div id="header">
       <div className="container">
@@ -20,8 +45,14 @@ const Header = () => {
                 type="search"
                 placeholder="Tìm kiếm"
                 aria-label="Search"
+                onChange={(e) => setKeyword(e.target.value)}
+                value={keyword}
               />
-              <button className="btn btn-danger mt-3" type="submit">
+              <button
+                className="btn btn-danger mt-3"
+                type="submit"
+                onClick={onSearchHandle}
+              >
                 Tìm kiếm
               </button>
             </form>

@@ -1,31 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./css/search.css";
-import data from "./SearchData/SearchData.json";
 import ProductItem from "../../shared/components/ProductItem";
+import { useLocation, useSearchParams } from "react-router-dom";
+import { getProducts } from "../../services/Api";
 
 const Search = () => {
+  const [products, setProducts] = useState([]);
+
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (location.pathname.toLowerCase() === "/search") {
+      getProducts({
+        params: { name: searchParams.get("keyword"), limit: 9 },
+      }).then(({ data }) => setProducts(data.data.docs));
+    }
+  }, [searchParams, location]);
+
   return (
     <>
       {/*	List Product	*/}
       <div className="products">
         <div id="search-result">
-          Kết quả tìm kiếm với sản phẩm <span>iPhone Xs Max 2 Sim - 256GB</span>
+          Kết quả tìm kiếm với sản phẩm{" "}
+          <span>{searchParams.get("keyword")}</span>
         </div>
         <div className="product-list card-deck">
-          {data?.map(
-            (product, i) => i < 3 && <ProductItem key={i} item={product} />
-          )}
-        </div>
-        <div className="product-list card-deck">
-          {data?.map(
-            (product, i) =>
-              i >= 3 && i < 6 && <ProductItem key={i} item={product} />
-          )}
-        </div>
-        <div className="product-list card-deck">
-          {data?.map(
-            (product, i) => i >= 6 && <ProductItem key={i} item={product} />
-          )}
+          {products?.map((product) => (
+            <ProductItem key={product._id} item={product} />
+          ))}
         </div>
       </div>
       {/*	End List Product	*/}
