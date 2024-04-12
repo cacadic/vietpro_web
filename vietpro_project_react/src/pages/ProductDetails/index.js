@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./css/product.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   createCommentProduct,
   getCommentsProduct,
@@ -9,6 +9,8 @@ import {
 import { getImageProduct } from "../../utils";
 import CurrencyFormat from "react-currency-format";
 import moment from "moment";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux-setup/reducers/cart";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
@@ -16,6 +18,9 @@ const ProductDetails = () => {
   const [inputComment, setInputComment] = useState({});
 
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
@@ -34,6 +39,22 @@ const ProductDetails = () => {
     getCommentsProduct(id, { param: { limit: 30 } }).then(({ data }) =>
       setComments(data.data.docs)
     );
+  };
+
+  const clickAddToCart = (buyNow) => {
+    dispatch(
+      addToCart({
+        _id: id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        qty: 1,
+      })
+    );
+
+    if (buyNow === "buy-now") {
+      navigate("/Cart");
+    }
   };
 
   useEffect(() => {
@@ -81,7 +102,20 @@ const ProductDetails = () => {
               </li>
             </ul>
             <div id="add-cart">
-              <a href="#">Mua ngay</a>
+              {product?.is_stock && (
+                <>
+                  <button
+                    className="btn btn-warning mr-2"
+                    onClick={() => clickAddToCart("buy-now")}
+                  >
+                    Mua ngay
+                  </button>
+
+                  <button className="btn btn-info" onClick={clickAddToCart}>
+                    Thêm vào giỏ hàng
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

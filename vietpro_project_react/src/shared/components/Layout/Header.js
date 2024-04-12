@@ -5,6 +5,7 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [keyword, setKeyword] = useState("");
@@ -12,6 +13,8 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
+
+  const items = useSelector(({ Cart }) => Cart.items);
 
   const onSearchHandle = (e) => {
     e.preventDefault();
@@ -61,7 +64,12 @@ const Header = () => {
             <a className="mt-4 mr-2" href="#">
               giỏ hàng
             </a>
-            <span className="mt-3">8</span>
+            <span className="mt-3">
+              {items?.reduce(
+                (accumulator, currentValue) => accumulator + currentValue.qty,
+                0
+              )}
+            </span>
           </div>
         </div>
       </div>

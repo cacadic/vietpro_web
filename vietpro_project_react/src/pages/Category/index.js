@@ -14,7 +14,7 @@ const Category = () => {
 
   useEffect(() => {
     getProductsCategory(id, { params: { limit: 9 } }).then(({ data }) => {
-      setTotal(data?.data?.items.total);
+      setTotal(data?.data?.pages?.total);
       setProducts(data?.data?.docs);
     });
 
