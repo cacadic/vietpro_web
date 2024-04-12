@@ -1,22 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./css/search.css";
 import ProductItem from "../../shared/components/ProductItem";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { getProducts } from "../../services/Api";
+import Pagination from "../../shared/components/Pagination";
+
+const LIMIT = 12;
 
 const Search = () => {
   const [products, setProducts] = useState([]);
+  const [pages, setPages] = useState({});
 
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
+  const page = useMemo(
+    () => Number(searchParams.get("page")) ?? 1,
+    [searchParams]
+  );
+
   useEffect(() => {
     if (location.pathname.toLowerCase() === "/search") {
       getProducts({
-        params: { name: searchParams.get("keyword"), limit: 9 },
-      }).then(({ data }) => setProducts(data.data.docs));
+        params: { name: searchParams.get("keyword"), limit: LIMIT, page },
+      }).then(({ data }) => {
+        setProducts(data.data.docs);
+        setPages({
+          ...data.data.pages,
+          limit: LIMIT,
+        });
+      });
     }
-  }, [searchParams, location]);
+  }, [searchParams, location, page]);
 
   return (
     <>
@@ -33,35 +48,7 @@ const Search = () => {
         </div>
       </div>
       {/*	End List Product	*/}
-      <div id="pagination">
-        <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" href="#">
-              Trang trước
-            </a>
-          </li>
-          <li className="page-item active">
-            <a className="page-link" href="#">
-              1
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" href="#">
-              2
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" href="#">
-              3
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" href="#">
-              Trang sau
-            </a>
-          </li>
-        </ul>
-      </div>
+      <Pagination pages={pages} />
     </>
   );
 };
